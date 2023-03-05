@@ -49,17 +49,18 @@ class_name = ['abyssinian',
 
 model = torchvision.models.resnet18(weights=True)
 model.fc = nn.Linear(512, 37)
-param = torch.load("dog_cat.pth", map_location=torch.device('cpu'))
+param = torch.load("pet_is.pth", map_location=torch.device('cpu'))
 model.load_state_dict(param)
 
 def predict(path):
-    img = Image.open(path)
+    #im = Image.open(path)
     transform = transforms.Compose([transforms.Resize(256), transforms.CenterCrop(224),transforms.ToTensor(),transforms.Normalize(IMG_MEAN, IMG_STD)])
-    x = transform(img)
+    x = transform(path)
     model.eval()
-    outputs = model(x)
+    imx = torch.unsqueeze(x, 0)
+    outputs = model(imx)
     y = torch.argmax(outputs)
     return class_name[y]
 
-w = predict("/Users/kouhei/Documents/python_code/IMG_0543.JPG")
-print(w)
+#w = predict("/Users/kouhei/Documents/python_code/IMG_0543.JPG")
+#print(w)
