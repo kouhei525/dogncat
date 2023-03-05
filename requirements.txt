@@ -1,0 +1,4 @@
+pytorch==1.12.1
+torch==0.13.1
+pillow==9.4.0
+streamlit==1.19.0

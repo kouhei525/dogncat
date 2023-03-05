@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from dogncat.model import predict
+from model import predict
 
 st.set_option("deprecation.showfileUploaderEncoding", False)
 st.sidebar.title("Take a photo of your pets")
