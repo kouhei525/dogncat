@@ -18,7 +18,12 @@ if img_file is not None:
         st.image(img, caption="Target", width=480)
         st.write("")
         result = predict(img)
-        st.write(result)
+        a = result[0]
+        b = result[1]
+        c = result[2]
+        st.write(f"First: {a}")
+        st.write(f"Second: {b}")
+        st.write(f"Third: {c}")
 
 st.sidebar.caption("""Dataset : The Oxford-IIIT Pet Dataset\n
 Licence is Creative Commons Attribution-ShareAlike 4.0 International License.""")
