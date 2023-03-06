@@ -59,8 +59,11 @@ def predict(path):
     model.eval()
     imx = torch.unsqueeze(x, 0)
     outputs = model(imx)
-    y = torch.argmax(outputs)
-    return class_name[y]
+    #y = torch.argmax(outputs)
+    dog = torch.squeeze(outputs)
+    s, idx = torch.sort(dog, descending=True)
+    a, b, c = idx[0:3].tolist()
+    return class_name[a],class_name[b],class_name[c]
 
-#w = predict("/Users/kouhei/Documents/python_code/IMG_0543.JPG")
-#print(w)
+ans = predict("main_53582_8e4bf_detail.jpg")
+print(ans)
