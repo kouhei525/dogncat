@@ -65,5 +65,5 @@ def predict(path):
     a, b, c = idx[0:3].tolist()
     return class_name[a],class_name[b],class_name[c]
 
-ans = predict("main_53582_8e4bf_detail.jpg")
-print(ans)
+#ans = predict("main_53582_8e4bf_detail.jpg")
+#print(ans)
